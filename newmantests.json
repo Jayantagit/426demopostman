@@ -1,0 +1,103 @@
+{
+	"info": {
+		"_postman_id": "123567b7-a7ca-4660-a892-633c1bdf67c0",
+		"name": "newmantest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET Contacts",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "68073803-7d05-4a9d-9bef-aa7aac7f89dd",
+						"exec": [
+							"// var firstname = JSON.stringify(pm.iterationData.get(\"firstname\"))",
+							"// pm.environment.set(\"firstname\",firstname)",
+							"",
+							"",
+							"",
+							"pm.test(\"validating first Name\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData[0].firstName).to.eql(\"shailaja\");",
+							"});",
+							"",
+							"",
+							"pm.test(\"Validating email \", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData[0].email).to.eql(\"shailaja@gmail.com\");",
+							"});",
+							"",
+							"",
+							"",
+							"pm.test(\"Validating Country\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData[0].location.country).to.eql(\"India\");",
+							"});",
+							"",
+							"pm.test(\"Validating City\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData[0].location.city).to.eql(\"Bangalore, Karnataka\");",
+							"});",
+							"",
+							"",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Status code name has string\", function () {",
+							"    pm.response.to.have.status(\"Created\");",
+							"});",
+							"",
+							"",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});",
+							"",
+							"pm.test(\"Body is correct\", function () {",
+							"    pm.response.to.have.body(\"firstName\");",
+							"});",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "3.13.86.142:3000/contacts",
+					"host": [
+						"3",
+						"13",
+						"86",
+						"142"
+					],
+					"port": "3000",
+					"path": [
+						"contacts"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
